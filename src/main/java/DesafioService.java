@@ -11,10 +11,15 @@ public class DesafioService {
 
         Map<String, Integer> listCompras = new HashMap<>();
 
-        for (final String email: emails) {
-            listCompras.put(email, valorEmail);
-        }
+        for (int i = 0; i < emails.size(); i++) {
+            int mod = soma % qtdEmails;
 
+            if ((mod > 0) && (i == (emails.size()-1))) {
+                listCompras.put(emails.get(i), valorEmail+mod);
+            } else {
+                listCompras.put(emails.get(i), valorEmail);
+            }
+        }
         return listCompras;
     }
 

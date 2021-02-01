@@ -14,13 +14,20 @@ class DesafioServiceTest {
 
     @Test
     void testarCalculo(){
-        List<String> emails = Arrays.asList("a@a", "b@b", "c@C");
+        final List<String> emails = Arrays.asList("a@a", "b@b", "c@c");
         final List<Item> items = criarItens();
 
         final Map<String, Integer> calcular = desafioService.calcular(items, emails);
         System.out.println(calcular);
+    }
 
-        Assertions.assertEquals(calcular.size(), 3);
+    @Test
+    void testarCalculoDizima(){
+        final List<String> emails = Arrays.asList("a@a", "b@b", "c@c");
+        final List<Item> items = Arrays.asList(new Item("TV", 100, 1, UnidadeVenda.UNIDADE));
+
+        final Map<String, Integer> calcular = desafioService.calcular(items, emails);
+        System.out.println(calcular);
     }
 
     List<Item> criarItens(){
